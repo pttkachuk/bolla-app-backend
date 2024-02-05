@@ -1,4 +1,4 @@
-const { Schema, model, modelNames } = require('mongoose');
+const { Schema, model } = require('mongoose');
 const emailRegexp = require('../helpers/emailRegexp');
 const handleSaveErrors = require('../helpers/handleSaveErrors');
 
