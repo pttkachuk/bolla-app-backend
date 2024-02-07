@@ -158,5 +158,105 @@
         }
     }
 
+  },
+  "components":{
+    "schemas":{
+        "RegistrationRequest":{
+            "required":["name", "email", "password"],
+            "type":"object",
+            "properties":{
+                "name":{
+                    "$ref":"#/components/examples/user/name"
+                },
+                "email":{
+                    "$ref":"#/components/examples/user/email"
+                },
+                "password":{
+                    "$ref":"#/components/examples/user/password"
+                }
+            }
+        },
+        "RegistrationResponse":{
+            "type":"object",
+            "properties":{
+                "name":{
+                    "$ref":"#/components/examples/user/name"
+                },
+                "email":{
+                    "$ref":"#/components/examples/user/email"
+                }
+            }
+        },
+        "LoginRequest":{
+            "required":["email","password"],
+            "type":"object",
+            "properties":{
+                "email":{
+                    "$ref":"#/components/examples/user/email"
+                },
+                "password":{
+                    "$ref":"#/components/examples/user/password"
+                }
+            }
+        },
+        "LoginResponse":{
+            "type":"object",
+            "properties":{
+                "_id":{
+                    "type":"string",
+                    "description":"User's is",
+                    "example":"js98d7f0a7d6f8as79a87f69"
+                },
+                "name":{
+                    "$ref":"#/components/examples/user/name"
+                },
+                "email":{
+                    "$ref":"#/components/examples/user/email"
+                },
+                "password":{
+                    "$ref":"#/components/examples/user/password"
+                }
+            }
+        },
+        "GetUserCurrentResponse":{
+            "type":"object",
+            "properties":{
+                "name":{
+                    "$ref":"#/components/examples/user/name"
+                },
+                "email":{
+                    "$ref":"#/components/examples/user/email"
+                }
+            }
+        }
+    },
+    "examples":{
+        "user":{
+            "userId":{
+                "type":"string",
+                "description":"User's id",
+                "example":"js98d7f0a7d6f8as79a87f69"
+            },
+            "name":{
+                "type":"string",
+                "description": "Users's name",
+                "example": "Peter",
+                "minLength": 3,
+                "maxLength": 35
+            },
+            "email":{
+                "type":"string",
+                "description": "Users's email",
+                "format": "email"
+            },
+            "password":{
+                "type":"string",
+                "description": "Users's password",
+                "example": "examplepass1337",
+                "minLength": 9,
+                "maxLength": 30
+            }
+        }
+    }
   }
 }
