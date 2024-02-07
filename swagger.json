@@ -1,0 +1,162 @@
+
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Bolla App API",
+    "description": "API dosumentation for Bolla App",
+    "version": "1.0.0",
+    "license":{
+            "name": "MIT",
+            "url": "https://spdx.org/licenses/MIT.html"
+        },
+           "contact":{
+            "name":"Bolla App",
+            "url": "http://bolla-app.com",
+            "email":"petrotkachuk6@gmail.com"
+        }
+  },
+   "servers":[
+        {
+            "url": "http://localhost:3000/api"
+        }
+    ], 
+    "tags":[
+        {
+            "name": "Auth",
+            "description":"Authorization endpoints"
+        }
+    ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags":["Auth"],
+        "summary": "User registration",
+        "requestBody":{
+                    "description":"Registration's object",
+                    "required": true,
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/RegistrationRequest"
+                            }
+                        }
+                    }
+                },
+        "responses": {
+          "201": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref":"#/components/schemas/RegistrationResponse"
+                }
+              }
+            }
+          },
+           "400":{
+                    "description":"Bad request (invalid request body)",
+                    "content":{}
+                },
+            "409":{
+                    "description":"Provided email alredy exists",
+                    "content":{}
+                }
+        }
+      }
+    },
+    "/auth/login":{
+        "post":{
+            "tags":["Auth"],
+            "summary":"User login",
+            "requestBody":{
+                "description":"Login object",
+                "required":true,
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "$ref":"#/components/schemas/LoginRequest"
+                        }
+                    }
+                }
+            },
+            "responses":{
+                "200":{
+                    "description":"Successful operation",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/LoginResponse"
+                            }
+                        }
+                    }
+                },
+                "400":{
+                    "description":"Bad request (invalid request body)",
+                    "content":{}
+                },
+                "409":{
+                    "description":"Email doesn't exist/Password is wrong",
+                    "content":{}
+                }
+            }
+        }
+    },
+    "/auth/logout":{
+        "post":{
+            "tags":["Auth"],
+            "summary":"User logout",
+            "security":[{"Bearer":[]}],
+            "responses":{
+                "204":{
+                    "description":"Successful operation",
+                    "content":{}
+                },
+                "400":{
+                    "description":"No token provided",
+                    "content":{}
+                },
+                "401":{
+                    "description":"Unauthorized (invalid acces token)",
+                    "content":{}
+                },
+                "404":{
+                    "description":"Invalid user / Invalid session",
+                    "content":{}
+                }
+            }
+        }
+    },
+     "/auth/current":{
+        "post":{
+            "tags":["Auth"],
+            "summary":"Gets about user info",
+            "security":[{"Bearer":[]}],
+            "responses":{
+                "200":{
+                    "description":"Successful operation",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/GetUserCurrentResponse"
+                            }
+                        }
+                    }
+                },
+                "400":{
+                    "description":"No token provided",
+                    "content":{}
+                },
+                "401":{
+                    "description":"Unauthorized (invalid acces token)",
+                    "content":{}
+                },
+                "404":{
+                    "description":"Invalid user / Invalid session",
+                    "content":{}
+                }
+            }
+        }
+    }
+
+  }
+}
