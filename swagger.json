@@ -54,12 +54,10 @@
             }
           },
            "400":{
-                    "description":"Bad request (invalid request body)",
-                    "content":{}
+                    "description":"Bad request (invalid request body)"
                 },
             "409":{
-                    "description":"Provided email alredy exists",
-                    "content":{}
+                    "description":"Provided email alredy exists"
                 }
         }
       }
@@ -91,12 +89,10 @@
                     }
                 },
                 "400":{
-                    "description":"Bad request (invalid request body)",
-                    "content":{}
+                    "description":"Bad request (invalid request body)"
                 },
                 "409":{
-                    "description":"Email doesn't exist/Password is wrong",
-                    "content":{}
+                    "description":"Email doesn't exist/Password is wrong"
                 }
             }
         }
@@ -106,22 +102,36 @@
             "tags":["Auth"],
             "summary":"User logout",
             "security":[{"Bearer":[]}],
+             "requestBody":{
+                "description":"Logout object",
+                "required":true,
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "$ref":"#/components/schemas/LogoutRequest"
+                        }
+                    }
+                }
+            },
             "responses":{
                 "204":{
                     "description":"Successful operation",
-                    "content":{}
+                    "content":{
+                         "application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/LogoutResponse"
+                            }
+                        }
+                    }
                 },
                 "400":{
-                    "description":"No token provided",
-                    "content":{}
+                    "description":"No token provided"
                 },
                 "401":{
-                    "description":"Unauthorized (invalid acces token)",
-                    "content":{}
+                    "description":"Unauthorized (invalid acces token)"
                 },
                 "404":{
-                    "description":"Invalid user / Invalid session",
-                    "content":{}
+                    "description":"Invalid user / Invalid session"
                 }
             }
         }
@@ -129,7 +139,7 @@
      "/auth/current":{
         "post":{
             "tags":["Auth"],
-            "summary":"Gets about user info",
+            "summary":"Current user info",
             "security":[{"Bearer":[]}],
             "responses":{
                 "200":{
@@ -143,16 +153,13 @@
                     }
                 },
                 "400":{
-                    "description":"No token provided",
-                    "content":{}
+                    "description":"No token provided"
                 },
                 "401":{
-                    "description":"Unauthorized (invalid acces token)",
-                    "content":{}
+                    "description":"Unauthorized (invalid acces token)"
                 },
                 "404":{
-                    "description":"Invalid user / Invalid session",
-                    "content":{}
+                    "description":"Invalid user / Invalid session"
                 }
             }
         }
@@ -162,14 +169,14 @@
   "components":{
     "schemas":{
         "RegistrationRequest":{
-            "required":["name", "email", "password"],
+            "required":["name", "login", "password"],
             "type":"object",
             "properties":{
                 "name":{
                     "$ref":"#/components/examples/user/name"
                 },
-                "email":{
-                    "$ref":"#/components/examples/user/email"
+                "login":{
+                    "$ref":"#/components/examples/user/login"
                 },
                 "password":{
                     "$ref":"#/components/examples/user/password"
@@ -182,17 +189,17 @@
                 "name":{
                     "$ref":"#/components/examples/user/name"
                 },
-                "email":{
-                    "$ref":"#/components/examples/user/email"
+                "login":{
+                    "$ref":"#/components/examples/user/login"
                 }
             }
         },
         "LoginRequest":{
-            "required":["email","password"],
+            "required":["login","password"],
             "type":"object",
             "properties":{
-                "email":{
-                    "$ref":"#/components/examples/user/email"
+                "login":{
+                    "$ref":"#/components/examples/user/login"
                 },
                 "password":{
                     "$ref":"#/components/examples/user/password"
@@ -202,19 +209,28 @@
         "LoginResponse":{
             "type":"object",
             "properties":{
-                "_id":{
-                    "type":"string",
-                    "description":"User's is",
-                    "example":"js98d7f0a7d6f8as79a87f69"
-                },
-                "name":{
-                    "$ref":"#/components/examples/user/name"
-                },
-                "email":{
-                    "$ref":"#/components/examples/user/email"
+                "token":{
+                    "$ref":"#/components/examples/user/token"
+                }
+            }
+        },
+         "LogoutRequest":{
+            "required":["login","password"],
+            "type":"object",
+            "properties":{
+                "login":{
+                    "$ref":"#/components/examples/user/login"
                 },
                 "password":{
                     "$ref":"#/components/examples/user/password"
+                }
+            }
+        },
+        "LogoutResponse":{
+            "type":"object",
+            "properties":{
+                "message":{
+                    "$ref":"#/components/examples/user/logout"
                 }
             }
         },
@@ -224,8 +240,8 @@
                 "name":{
                     "$ref":"#/components/examples/user/name"
                 },
-                "email":{
-                    "$ref":"#/components/examples/user/email"
+                "login":{
+                    "$ref":"#/components/examples/user/login"
                 }
             }
         }
@@ -240,14 +256,16 @@
             "name":{
                 "type":"string",
                 "description": "Users's name",
-                "example": "Peter",
+                "example": "User Example",
                 "minLength": 3,
-                "maxLength": 35
+                "maxLength": 50
             },
-            "email":{
+            "login":{
                 "type":"string",
-                "description": "Users's email",
-                "format": "email"
+                "description": "Users's login",
+                "example":"User.Login",
+                "minLength": 3,
+                "maxLength": 50
             },
             "password":{
                 "type":"string",
@@ -255,6 +273,16 @@
                 "example": "examplepass1337",
                 "minLength": 9,
                 "maxLength": 30
+            },
+            "token":{
+                "type":"string",
+                "description": "Auth token",
+                "example":"q098nq9wyr0cqwenczxf09g8a.nsa0sdnf"
+            },
+            "logout":{
+                "type":"string",
+                "description": "User logout",
+                "example":"Logout success"
             }
         }
     }
