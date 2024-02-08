@@ -6,10 +6,10 @@ const registerSchema = Joi.object({
     name: Joi.string()
         .required()
         .min(3)
-        .max(35)
+        .max(50)
         .messages({
             'string.min': errMsg.errFieldMin('Name', 3),
-            'string.max': errMsg.errFieldMax('Name', 35),
+            'string.max': errMsg.errFieldMax('Name', 50),
             'string.empty': errMsg.errFieldIsRequired('Name'),
             'any.required': errMsg.errFieldIsRequired('Name'),
         }),
