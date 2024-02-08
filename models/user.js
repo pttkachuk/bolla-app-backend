@@ -8,7 +8,7 @@ const userSchema = new Schema(
         name: {
             type: String,
             minlenght: [3, errMsg.errFieldMinLength('User name', 3)],
-            maxlenght: [35, errMsg.errFieldMaxLength('User name', 35)],
+            maxlenght: [50, errMsg.errFieldMaxLength('User name', 50)],
             required: [true, errMsg.errFieldIsRequired('User name')],
         },
         password: {
@@ -18,6 +18,8 @@ const userSchema = new Schema(
         },
         login: {
             type: String,
+            minlenght: [3, errMsg.errFieldMinLength('Login', 3)],
+            maxlenght: [50, errMsg.errFieldMaxLength('Login', 50)],
             unique: true,
             required: [true, errMsg.errFieldIsRequired('Login')],
         },
