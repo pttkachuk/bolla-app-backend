@@ -11,17 +11,17 @@ const userSchema = new Schema(
             maxlenght: [50, errMsg.errFieldMaxLength('User name', 50)],
             required: [true, errMsg.errFieldIsRequired('User name')],
         },
-        password: {
-            type: String,
-            minlenght: [6, errMsg.errMsgMinPass],
-            required: [true, errMsg.errFieldIsRequired('Password')],
-        },
         login: {
             type: String,
             minlenght: [3, errMsg.errFieldMinLength('Login', 3)],
             maxlenght: [50, errMsg.errFieldMaxLength('Login', 50)],
-            unique: true,
+            //unique: true,
             required: [true, errMsg.errFieldIsRequired('Login')],
+        },
+        password: {
+            type: String,
+            minlenght: [6, errMsg.errMsgMinPass],
+            required: [true, errMsg.errFieldIsRequired('Password')],
         },
         token: {
             type: String,
