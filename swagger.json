@@ -101,7 +101,7 @@
         }
     },
     "/auth/logout":{
-        "post":{
+        "get":{
             "tags":["Auth"],
             "summary":"User logout",
             "security":[{"Bearer":[]}],
@@ -140,7 +140,7 @@
         }
     },
      "/auth/current":{
-        "post":{
+        "get":{
             "tags":["Auth"],
             "summary":"Current user info",
             "security":[{"Bearer":[]}],
@@ -167,8 +167,8 @@
             }
         }
     },
-        "/auth/resetPassword":{
-        "post":{
+    "/auth/resetPassword":{
+        "patch":{
             "tags":["Auth"],
             "summary":"Reset user's password",
             "requestBody":{
