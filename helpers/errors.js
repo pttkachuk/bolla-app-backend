@@ -9,7 +9,7 @@ const errConflict = 'Conflict';
 
 const errMsgEmailRegaxp = 'is not a valid email';
 const errMsgMinPass = 'Password must have a minimum of 9 characters';
-const errMsgAuthInvalid = 'Emai or password invalid';
+const errMsgAuthInvalid = 'Login or password invalid';
 
 function errFieldIsRequired(filed) {
     return `${filed} is required`;
