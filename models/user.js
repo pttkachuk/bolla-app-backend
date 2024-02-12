@@ -15,7 +15,7 @@ const userSchema = new Schema(
             type: String,
             minlenght: [3, errMsg.errFieldMinLength('Login', 3)],
             maxlenght: [50, errMsg.errFieldMaxLength('Login', 50)],
-            //unique: true,
+            unique: true,
             required: [true, errMsg.errFieldIsRequired('Login')],
         },
         password: {

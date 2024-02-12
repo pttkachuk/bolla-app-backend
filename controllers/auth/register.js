@@ -6,7 +6,7 @@ const register = async (req, res) => {
     const { name, login, password } = req.body;
     const user = await User.findOne({ login });
     if (user) {
-        throw RequestError(409, 'Email in use');
+        throw RequestError(409, 'Login in use');
     };
     const hashPassword = await bcrypt.hash(password, 10);
     const result = await User.create({ name, login, password: hashPassword });
