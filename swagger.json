@@ -16,6 +16,9 @@
         }
   },
    "servers":[
+       {
+           "url":"https://bolla-app-7rgy.onrender.com/api"
+       },
         {
             "url": "http://localhost:4000/api"
         }
