@@ -5,9 +5,9 @@ It is designed to be a lightweight application easily integrable with any fronte
 
 ## Features
 
-- <b>User Registration</b>: Provides an API to allow users to register by providing a unique username, email address, and password.
-- <b>Password Hashing</b>: Utilizes the bcrypt algorithm to secure user passwords stored in the database.
-- <b>Error Handling</b>: Implements error handling to respond appropriately to errors during the registration process.
+- <b>User Registration</b>: <s>Provides an API to allow users to register by providing a unique username, email address, and password.</s>
+- <b>Password Hashing</b>: <s>Utilizes the bcrypt algorithm to secure user passwords stored in the database.</s>
+- <b>Error Handling</b>: <s>Implements error handling to respond appropriately to errors during the registration process.</s>
 
 ## Technologies Used
 
@@ -20,9 +20,9 @@ It is designed to be a lightweight application easily integrable with any fronte
 
 1. Clone the repository to your computer.
 2. Ensure you have Node.js and MongoDB installed in your system.
-3. Run npm install to install dependencies.
-4. Set up environment variables in the .env file.
-5. Start the server with npm start.
+3. Run <sup>npm install</sup> to install dependencies.
+4. Set up environment variables in the <sup>.env</sup> file.
+5. Start the server with <sup>npm start</sup>.
 
 ## Environment Variable Configuration
 
