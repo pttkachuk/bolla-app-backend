@@ -5,9 +5,9 @@ It is designed to be a lightweight application easily integrable with any fronte
 
 ## Features
 
-- User Registration: Provides an API to allow users to register by providing a unique username, email address, and password.
-- Password Hashing: Utilizes the bcrypt algorithm to secure user passwords stored in the database.
-- Error Handling: Implements error handling to respond appropriately to errors during the registration process.
+- <b>User Registration</b>: Provides an API to allow users to register by providing a unique username, email address, and password.
+- <b>Password Hashing</b>: Utilizes the bcrypt algorithm to secure user passwords stored in the database.
+- <b>Error Handling</b>: Implements error handling to respond appropriately to errors during the registration process.
 
 ## Technologies Used
 
