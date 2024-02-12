@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-    body{
-        background-color: white;
-    }
-</style>
-</head>
-<body>
-
 # Simple User Registration Backend
 
 This project is a Node.js backend that handles user registration operations.
@@ -44,6 +33,3 @@ The backend uses environment variables for configuration. Make sure to properly 
 - <b>SECRET_KEY</b>: Secret key used for signing JWT tokens.
 
 # This project is licensed under the terms of the MIT license.
-
-</body>
-</html>
