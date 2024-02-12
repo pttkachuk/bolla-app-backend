@@ -55,9 +55,32 @@ const loginSchema = Joi.object({
         }),
 });
 
+const resetPasswordSchema = Joi.object({
+    login: Joi.string()
+        .required()
+        .min(3)
+        .max(50)
+        .messages({
+            'string.min': errMsg.errFieldMin('Login', 3),
+            'string.max': errMsg.errFieldMax('Login', 50),
+            'string.empty': errMsg.errFieldIsRequired('Login'),
+            'any.required': errMsg.errFieldIsRequired('Login'),
+
+        }),
+    password: Joi.string()
+        .required()
+        .min(9)
+        .messages({
+            'string.min': errMsg.errMsgMinPass,
+            'string.empty': errMsg.errFieldIsRequired('New Password'),
+            'any.required': errMsg.errFieldIsRequired('New Password'),
+        }),
+});
+
 const schemas = {
     registerSchema,
-    loginSchema
+    loginSchema,
+    resetPasswordSchema
 };
 
 module.exports = { schemas };
