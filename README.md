@@ -5,16 +5,16 @@ It is designed to be a lightweight application easily integrable with any fronte
 
 ## Features
 
-- <b>User Registration</b>: <small>Provides an API to allow users to register by providing a unique username, email address, and password.</small>
-- <b>Password Hashing</b>: <small>Utilizes the bcrypt algorithm to secure user passwords stored in the database.</small>
-- <b>Error Handling</b>: <small>Implements error handling to respond appropriately to errors during the registration process.</small>
+- <b>User Registration</b>: Provides an API to allow users to register by providing a unique username, email address, and password.
+- <b>Password Hashing</b>: >Utilizes the bcrypt algorithm to secure user passwords stored in the database.
+- <b>Error Handling</b>: Implements error handling to respond appropriately to errors during the registration process.
 
 ## Technologies Used
 
-- Node.js: Backend based on Node.js for handling HTTP requests.
-- Express.js: Lightweight web framework for handling routes and requests.
-- MongoDB: NoSQL database used for storing user data.
-- Mongoose: Data modeling library to simplify interaction with MongoDB from the backend.
+- <b>Node.js</b>: Backend based on Node.js for handling HTTP requests.
+- <b>Express.js</b>: Lightweight web framework for handling routes and requests.
+- <b>MongoDB</b>: NoSQL database used for storing user data.
+- <b>Mongoose</b>: Data modeling library to simplify interaction with MongoDB from the backend.
 
 ## Installation
 
@@ -28,8 +28,8 @@ It is designed to be a lightweight application easily integrable with any fronte
 
 The backend uses environment variables for configuration. Make sure to properly configure these variables before starting the server.
 
-- PORT: The port on which the server will run.
-- MONGODB_URI: The URI for connecting to MongoDB database.
-- SECRET_KEY: Secret key used for signing JWT tokens.
+- <b>PORT</b>: The port on which the server will run.
+- <b>MONGODB_URI</b>: The URI for connecting to MongoDB database.
+- <b>SECRET_KEY</b>: Secret key used for signing JWT tokens.
 
 # This project is licensed under the terms of the MIT license.
