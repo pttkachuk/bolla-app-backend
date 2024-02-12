@@ -14,5 +14,7 @@ router.post('/login', validateBody(schemas.loginSchema), ctrlWrapper(ctrl.login)
 router.get('/logout', authenticate, ctrlWrapper(ctrl.logout));
 //getcurrent
 router.get('/current', authenticate, ctrlWrapper(ctrl.getCurrent));
+//resetpassword
+router.patch('/resetpassword', validateBody(schemas.resetPasswordSchema), ctrlWrapper(ctrl.resetPassword));
 
 module.exports = router;
