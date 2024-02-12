@@ -18,11 +18,11 @@ It is designed to be a lightweight application easily integrable with any fronte
 
 ## Installation
 
-- Clone the repository to your computer.
-- Ensure you have Node.js and MongoDB installed in your system.
-- Run npm install to install dependencies.
-- Set up environment variables in the .env file.
-- Start the server with npm start.
+1. Clone the repository to your computer.
+2. Ensure you have Node.js and MongoDB installed in your system.
+3. Run npm install to install dependencies.
+4. Set up environment variables in the .env file.
+5. Start the server with npm start.
 
 ## Environment Variable Configuration
 
@@ -32,4 +32,4 @@ The backend uses environment variables for configuration. Make sure to properly 
 - MONGODB_URI: The URI for connecting to MongoDB database.
 - SECRET_KEY: Secret key used for signing JWT tokens.
 
-## This project is licensed under the terms of the MIT license.
+# This project is licensed under the terms of the MIT license.
