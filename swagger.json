@@ -95,7 +95,7 @@
                     "description":"Bad request (invalid request body)"
                 },
                 "409":{
-                    "description":"Email doesn't exist/Password is wrong"
+                    "description":"Login doesn't exist/Password is wrong"
                 }
             }
         }
@@ -166,8 +166,42 @@
                 }
             }
         }
+    },
+        "/auth/resetPassword":{
+        "post":{
+            "tags":["Auth"],
+            "summary":"Reset user's password",
+            "requestBody":{
+                "description":"Reset Password object",
+                "required":true,
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "$ref":"#/components/schemas/ResetPasswordRequest"
+                        }
+                    }
+                }
+            },
+            "responses":{
+                "200":{
+                    "description":"Successful operation",
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/ResetPasswordResponse"
+                            }
+                        }
+                    }
+                },
+                "400":{
+                    "description":"Bad request (invalid request body)"
+                },
+                "409":{
+                    "description":"Login doesn't exist/Password is invalid"
+                }
+            }
+        }
     }
-
   },
   "components":{
     "schemas":{
@@ -247,6 +281,26 @@
                     "$ref":"#/components/examples/user/login"
                 }
             }
+        },
+        "ResetPasswordRequest":{
+            "required":["login","password"],
+            "type":"object",
+            "properties":{
+                "login":{
+                    "$ref":"#/components/examples/user/login"
+                },
+                "password":{
+                    "$ref":"#/components/examples/user/password"
+                }
+            }
+        },
+        "ResetPasswordResponse":{
+             "type":"object",
+            "properties":{
+                "message":{
+                    "$ref":"#/components/examples/user/resetpassword"
+                }
+            }
         }
     },
     "examples":{
@@ -286,6 +340,11 @@
                 "type":"string",
                 "description": "User logout",
                 "example":"Logout success"
+            },
+            "resetpassword":{
+                "type":"string",
+                "description": "Reset user's password",
+                "example":"Password reset with success"
             }
         }
     }
