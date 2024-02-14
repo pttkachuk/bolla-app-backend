@@ -15,13 +15,15 @@ const login = async (req, res) => {
         throw RequestError(401, 'Login or password is wrong')
     }
     const payload = {
-        id: user._id
+        id: user._id,
+        login: user.login,
+        name: user.name
     };
 
     const token = jwt.sign(payload, SECRET_KEY, { expiresIn: '3d' });
     await User.findByIdAndUpdate(user._id, { token });
 
-    res.json({ token });
+    res.json({ login: user.login, name: user.name, token });
 };
 
 module.exports = login;
