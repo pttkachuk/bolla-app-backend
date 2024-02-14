@@ -101,7 +101,7 @@
         }
     },
     "/auth/logout":{
-        "get":{
+        "post":{
             "tags":["Auth"],
             "summary":"User logout",
             "security":[{"Bearer":[]}],

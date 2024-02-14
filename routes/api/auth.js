@@ -11,7 +11,7 @@ router.post('/register', validateBody(schemas.registerSchema), ctrlWrapper(ctrl.
 //signin
 router.post('/login', validateBody(schemas.loginSchema), ctrlWrapper(ctrl.login));
 //signout
-router.get('/logout', authenticate, ctrlWrapper(ctrl.logout));
+router.post('/logout', authenticate, ctrlWrapper(ctrl.logout));
 //getcurrent
 router.get('/current', authenticate, ctrlWrapper(ctrl.getCurrent));
 //resetpassword
