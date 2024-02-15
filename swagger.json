@@ -246,6 +246,12 @@
         "LoginResponse":{
             "type":"object",
             "properties":{
+                "login":{
+                    "$ref":"#/components/examples/user/login"
+                },
+                "name":{
+                    "$ref":"#/components/examples/user/name"
+                },
                 "token":{
                     "$ref":"#/components/examples/user/token"
                 }
