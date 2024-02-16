@@ -1,5 +1,5 @@
 const Joi = require('joi');
-//const emailRegexp = require('../helpers/emailRegexp');
+const emailRegexp = require('../helpers/emailRegexp');
 const errMsg = require('../helpers/errors');
 
 const registerSchema = Joi.object({
@@ -12,6 +12,14 @@ const registerSchema = Joi.object({
             'string.max': errMsg.errFieldMax('Name', 50),
             'string.empty': errMsg.errFieldIsRequired('Name'),
             'any.required': errMsg.errFieldIsRequired('Name'),
+        }),
+    email: Joi.string()
+        .pattern(emailRegexp)
+        .required()
+        .messages({
+            'string.pattern.base': `{email} ${errMsg.errMsgEmailRegaxp}`,
+            'string.empty': errMsg.errFieldIsRequired('Email'),
+            'any.required': errMsg.errFieldIsRequired('Email'),
         }),
     login: Joi.string()
         .required()
