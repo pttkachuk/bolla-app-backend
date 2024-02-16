@@ -16,14 +16,15 @@ const login = async (req, res) => {
     }
     const payload = {
         id: user._id,
+        name: user.name,
+        email: user.email,
         login: user.login,
-        name: user.name
     };
 
     const token = jwt.sign(payload, SECRET_KEY, { expiresIn: '3d' });
     await User.findByIdAndUpdate(user._id, { token });
 
-    res.json({ login: user.login, name: user.name, token });
+    res.json({ name: user.name, email: user.email, login: user.login, token });
 };
 
 module.exports = login;
