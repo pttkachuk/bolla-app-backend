@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-//const emailRegexp = require('../helpers/emailRegexp');
+const emailRegexp = require('../helpers/emailRegexp');
 const handleSaveErrors = require('../helpers/handleSaveErrors');
 const errMsg = require('../helpers/errors');
 
@@ -10,6 +10,12 @@ const userSchema = new Schema(
             minlenght: [3, errMsg.errFieldMinLength('User name', 3)],
             maxlenght: [50, errMsg.errFieldMaxLength('User name', 50)],
             required: [true, errMsg.errFieldIsRequired('User name')],
+        },
+        email: {
+            type: String,
+            unique: true,
+            match: emailRegexp,
+            required: [true, errMsg.errFieldIsRequired('Email')],
         },
         login: {
             type: String,
