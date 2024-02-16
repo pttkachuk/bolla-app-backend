@@ -212,6 +212,9 @@
                 "name":{
                     "$ref":"#/components/examples/user/name"
                 },
+                "email":{
+                    "$ref":"#/components/examples/user/email"
+                },
                 "login":{
                     "$ref":"#/components/examples/user/login"
                 },
@@ -225,6 +228,9 @@
             "properties":{
                 "name":{
                     "$ref":"#/components/examples/user/name"
+                },
+                 "email":{
+                    "$ref":"#/components/examples/user/email"
                 },
                 "login":{
                     "$ref":"#/components/examples/user/login"
@@ -246,11 +252,14 @@
         "LoginResponse":{
             "type":"object",
             "properties":{
-                "login":{
-                    "$ref":"#/components/examples/user/login"
-                },
                 "name":{
                     "$ref":"#/components/examples/user/name"
+                },
+                "email":{
+                    "$ref":"#/components/examples/user/email"
+                },
+                "login":{
+                    "$ref":"#/components/examples/user/login"
                 },
                 "token":{
                     "$ref":"#/components/examples/user/token"
@@ -329,6 +338,11 @@
                 "example":"User.Login",
                 "minLength": 3,
                 "maxLength": 50
+            },
+            "email":{
+                "type":"string",
+                "description": "User's email",
+                "example":"exampleusermail@mail.com"
             },
             "password":{
                 "type":"string",
